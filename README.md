@@ -1,11 +1,24 @@
-# Geektime Rust 语言训练营
+# Rust Project template
 
 ## 环境设置
 
 ### 安装 Rust
-
+Refer to https://rsproxy.cn/#getStarted
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
+vi ~/.cargo/config
+[source.crates-io]
+replace-with = 'rsproxy-sparse'
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+[net]
+git-fetch-with-cli = true
 ```
 
 ### 安装 VSCode 插件
@@ -37,7 +50,9 @@ cargo install cargo-generate
 在我们的课程中，新的项目会使用 `tyr-rust-bootcamp/template` 模版生成基本的代码：
 
 ```bash
-cargo generate tyr-rust-bootcamp/template
+cargo generate --git https://github.com/hyyphil/template.git
+or
+cargo generate --git https://gh.llkk.cc/https://github.com/hyyphil/template.git
 ```
 
 ### 安装 pre-commit
@@ -45,7 +60,7 @@ cargo generate tyr-rust-bootcamp/template
 pre-commit 是一个代码检查工具，可以在提交代码前进行代码检查。
 
 ```bash
-pipx install pre-commit
+pip install pre-commit
 ```
 
 安装成功后运行 `pre-commit install` 即可。

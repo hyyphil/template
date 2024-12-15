@@ -23,13 +23,11 @@ git-fetch-with-cli = true
 
 ### 安装 VSCode 插件
 
-- crates: Rust 包管理
 - Even Better TOML: TOML 文件支持
 - Better Comments: 优化注释显示
 - Error Lens: 错误提示优化
 - GitLens: Git 增强
 - Github Copilot: 代码提示
-- indent-rainbow: 缩进显示优化
 - Prettier - Code formatter: 代码格式化
 - REST client: REST API 调试
 - rust-analyzer: Rust 语言支持
@@ -63,7 +61,7 @@ pre-commit 是一个代码检查工具，可以在提交代码前进行代码检
 pip install pre-commit
 ```
 
-安装成功后运行 `pre-commit install` 即可。
+安装成功后运行 `pre-commit install` 即可。`pre-commit run --all-files`可手动触发所有检查。
 
 ### 安装 Cargo deny
 
